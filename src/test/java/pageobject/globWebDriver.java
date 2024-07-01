@@ -17,7 +17,7 @@ public class globWebDriver {
 	
     public static WebDriver getDriver() {
         if (driver == null) {
-        	String chromeDriverPath = System.getProperty("user.dir") + "/src/main/resources/drivers/chromedriver.exe";
+        	String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver.exe";
     	    System.setProperty("webdriver.chrome.driver", chromeDriverPath);
     	    driver = new ChromeDriver();
     	    wait = new WebDriverWait(driver, Duration.ofSeconds(15));
