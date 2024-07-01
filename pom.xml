@@ -62,6 +62,13 @@
 				<includes>blazerunner.java</includes>
         		<parallel>methods</parallel>
         		<useUnlimitedThreads>true</useUnlimitedThreads>
+        		
+        		<includes>
+            <include>**/*Test.java</include> <!-- Include all test classes -->
+        </includes>
+        <systemPropertyVariables>
+            <cucumber.options>--tags @test4 --glue stepdefinition --features = "src/test/resource/login.feature",</cucumber.options> <!-- Specify tags or feature files to run -->
+        </systemPropertyVariables>
     		</configuration>
 		</plugin>
       </plugins>
