@@ -17,6 +17,12 @@
   
 
 <build>
+	 <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+        </resource>
+        <!-- Other resource configurations -->
+    </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
