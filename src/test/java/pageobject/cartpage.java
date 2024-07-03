@@ -10,14 +10,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import io.cucumber.datatable.DataTable;
+import pageobject.homepage;
+import pageobject.globWebDriver;
 
-public class cartpage {
-	
-	   private cartpage cartPage;
-	   homepage homePage;
-	
+
+public class cartpage {	
 	   private WebDriver webDriver_test;
 	   private WebDriverWait webDriver_wait;
 	   
