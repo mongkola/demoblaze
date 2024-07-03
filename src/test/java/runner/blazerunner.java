@@ -13,7 +13,6 @@ import io.cucumber.junit.CucumberOptions;
 		tags = "@test1",
 		monochrome = true,
 		stepNotifications = true
-		
 		)
 public class blazerunner {
 
