@@ -17,12 +17,6 @@
 	</properties>
 	
 	<build>
-    <testResources>
-        <testResource>
-            <directory>src/test/resources</directory>
-        </testResource>
-        <!-- Additional test resource configurations -->
-    </testResources>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -32,6 +26,8 @@
                 <includes>
                     <include>demoblaze.java</include>
                 </includes>
+                <testSourceDirectory>demoblaze.java
+				</testSourceDirectory>
             </configuration>
         </plugin>
     </plugins>
