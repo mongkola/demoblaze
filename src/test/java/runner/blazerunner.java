@@ -8,9 +8,9 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		plugin = {"pretty", "html:target/cucumber/report.html"},
-		features = "src/test/resource/login.feature",
+		features = "src/test/resources/login.feature",
 		glue={"stepdefinition"},
-		tags = "@test4",
+		tags = "@test",
 		monochrome = true,
 		stepNotifications = true
 		
