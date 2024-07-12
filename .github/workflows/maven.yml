@@ -22,6 +22,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Build with Maven  # This step runs Maven to build the project
-      run: mvn clean package  # Replace 'clean package' with the appropriate Maven build command
+      run: mvn clean  # Replace 'clean package' with the appropriate Maven build command
+    - name: Build with Maven  # This step runs Maven to build the project
+      run: mvn install  # Replace 'clean package' with the appropriate Maven build command
     - name: Run Cucumber Tests  # This step runs Maven to execute Cucumber tests
       run: mvn test # Replace 'test' with the Maven command to run your Cucumber tests
