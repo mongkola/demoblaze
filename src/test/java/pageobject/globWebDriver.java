@@ -16,12 +16,44 @@ public class globWebDriver {
     }
 	
     public static WebDriver getDriver() {
+    	
+    	// Add condition to check the current OS that run thetest...
+    	String os = System.getProperty("os.name").toLowerCase();
+    	String driverPath = "src/test/resources/drivers/";
+    	
+    	
+    	if (os.contains("win")) {
+            // Windows driver
+    		if (driver == null) {
+    			System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
+                System.out.println("Windows");
+            	driver = new ChromeDriver();
+        	    wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    		}
+            
+        } else if (os.contains("nix") || os.contains("nux") || os.contains("aix") || os.contains("mac")) {
+            // Unix, Linux, or Mac driver
+        	if (driver == null) {
+                System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
+                System.out.println("Linux");
+            	driver = new ChromeDriver();
+        	    wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        	}
+        } else {
+            throw new IllegalStateException("Unsupported operating system for webdriver setup");
+        }
+    	
+
+	    
+    	/*
         if (driver == null) {
         	String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver.exe";
     	    System.setProperty("webdriver.chrome.driver", chromeDriverPath);
     	    driver = new ChromeDriver();
     	    wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         }
+        */
+        
         return driver;
     }
     
