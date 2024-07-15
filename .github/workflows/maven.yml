@@ -22,6 +22,7 @@ jobs:
     #- name: Build with Maven
      # run: mvn -B package --file pom.xml
     - name: Maven Clean  
-      run: mvn clean 
+      run: mvn clean install
     - name: Run Cucumber Tests  
       run: mvn test
+      working-directory: .
