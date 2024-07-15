@@ -23,8 +23,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Maven Clean  
       run: mvn clean install
-   # - name: Set Execute Permissions for Chromedriver
-    #  run: chmod +x src/test/resources/drivers/chromedriver.exe
+   #- name: Set Execute Permissions for Chromedriver
+    # run: chmod +x src/test/resources/drivers/chromedriver.exe
     - name: Run Cucumber Tests  
       run: mvn test
-      working-directory: .
