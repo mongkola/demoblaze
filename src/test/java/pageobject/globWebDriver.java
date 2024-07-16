@@ -20,8 +20,7 @@ public class globWebDriver {
     	// Add condition to check the current OS that run thetest...
     	String os = System.getProperty("os.name").toLowerCase();
     	String driverPath = "src/test/resources/drivers/";
-    	
-    	
+
     	if (os.contains("win")) {
             // Windows driver
     		if (driver == null) {
@@ -29,7 +28,7 @@ public class globWebDriver {
                 System.out.println("Windows");
             	driver = new ChromeDriver();
         	    wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-    		}
+    	    }
             
         } else if (os.contains("nix") || os.contains("nux") || os.contains("aix") || os.contains("mac")) {
             // Unix, Linux, or Mac driver
@@ -43,8 +42,6 @@ public class globWebDriver {
             throw new IllegalStateException("Unsupported operating system for webdriver setup");
         }
     	
-
-	    
     	/*
         if (driver == null) {
         	String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver.exe";
