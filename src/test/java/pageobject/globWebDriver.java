@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class globWebDriver {
@@ -20,13 +21,16 @@ public class globWebDriver {
     	// Add condition to check the current OS that run thetest...
     	String os = System.getProperty("os.name").toLowerCase();
     	String driverPath = "src/test/resources/drivers/";
+    	
+    	ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-remote-origin-headers");
 
     	if (os.contains("win")) {
             // Windows driver
     		if (driver == null) {
     			System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
                 System.out.println("Windows");
-            	driver = new ChromeDriver();
+            	driver = new ChromeDriver(options);
         	    wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     	    }
             
@@ -35,7 +39,7 @@ public class globWebDriver {
         	if (driver == null) {
                 System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
                 System.out.println("Linux");
-            	driver = new ChromeDriver();
+            	driver = new ChromeDriver(options);
         	    wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         	}
         } else {

@@ -47,7 +47,7 @@ Feature: Login DemoBlaze
       | Card Number | 1203451133998801 |
       | Name                  | Sawasdee |
       
-        @test4
+ @test4
   Scenario: Admin customer purchase phone, laptop and monitor products
     Given customer navigates to Demo Blaze
     When customer authenticate to the store
