@@ -23,7 +23,7 @@ public class globWebDriver {
     	String driverPath = "src/test/resources/drivers/";
     	
     	ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-remote-origin-headers");
+        options.addArguments("--headless");
 
     	if (os.contains("win")) {
             // Windows driver
