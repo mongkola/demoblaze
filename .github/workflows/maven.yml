@@ -29,6 +29,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn --B package --file pom.xml
+    - name: check file type
+      run: file src/test/resources/drivers/chromedriver
     - name: Clean and Install
       run: mvn clean install
     - name: Test
