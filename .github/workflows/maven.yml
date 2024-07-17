@@ -36,4 +36,4 @@ jobs:
    # - name: Clean and Install
     #  run: mvn clean install
     - name: Test
-      run: mvn test -Dchromeoptions.args=--headless
+      run: mvn test
