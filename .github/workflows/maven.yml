@@ -31,9 +31,9 @@ jobs:
       run: file src/test/resources/drivers/chromedriver
     - name: Run grant permission to chromedriver for Linux
       run:  chmod +x src/test/resources/drivers/chromedriver
-    - name: Build with Maven
-      run: mvn --B package --file pom.xml
-    - name: Clean and Install
-      run: mvn clean install
+    #- name: Build with Maven
+     # run: mvn --B package --file pom.xml
+   # - name: Clean and Install
+    #  run: mvn clean install
     - name: Test
-      run: mvn test
+      run: mvn test -Dchromeoptions.args=--headless
