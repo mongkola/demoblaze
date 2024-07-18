@@ -34,6 +34,8 @@ jobs:
     - name: Build with Maven
       run: mvn clean verify -Dtestng.dtd.http=true
     - name: Test
+      env:
+        CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
       run: mvn test
     - name: Archive Cucumber HTML reports
       uses: actions/upload-artifact@v2
