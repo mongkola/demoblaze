@@ -39,5 +39,5 @@ jobs:
       uses: actions/upload-artifact@v2
       if: always() # This ensures that reports are uploaded even if the test step fails
       with:
-        name: cucumber-html-reports
-        path: target/cucumber-html-report
+        name: github-cucumber-html-reports
+        path: target
