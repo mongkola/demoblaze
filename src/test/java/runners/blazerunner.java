@@ -12,7 +12,8 @@ import io.cucumber.junit.CucumberOptions;
 		tags = "@test",
 		glue={"stepdefinitions"},
 		monochrome = true,
-		stepNotifications = true
+		stepNotifications = true,
+		publish= true
 		)
 public class blazerunner {
 
