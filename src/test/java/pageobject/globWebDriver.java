@@ -24,6 +24,9 @@ public class globWebDriver {
     	
     	ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
+        options.addArguments("--verbose");
+        options.addArguments("--enable-logging");
+        options.setCapability("goog:loggingPrefs", java.util.logging.Level.ALL);
 
     	if (os.contains("win")) {
             // Windows driver
