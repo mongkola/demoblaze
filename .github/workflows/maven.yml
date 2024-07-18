@@ -38,7 +38,7 @@ jobs:
         CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
       run: mvn test
     - name: Archive Cucumber HTML reports
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       if: always() # This ensures that reports are uploaded even if the test step fails
       with:
         name: github-cucumber-html-reports
