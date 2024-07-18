@@ -40,4 +40,4 @@ jobs:
       if: always() # This ensures that reports are uploaded even if the test step fails
       with:
         name: github-cucumber-html-reports
-        path: target/*.html
+        path: target
