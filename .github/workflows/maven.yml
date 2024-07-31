@@ -38,8 +38,8 @@ jobs:
       run:  chmod +x src/test/resources/drivers/chromedriver
     # Step 5: Build project with Maven
     - name: Build with Maven
-      env:
-        CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
+      #env:
+        #CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
       run: mvn clean verify
       #-Dtestng.dtd.http=true
     # Step 6: maven Test - mvn test can be excluded as it's redundant with mvn verify
