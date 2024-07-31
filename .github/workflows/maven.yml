@@ -38,13 +38,15 @@ jobs:
       run:  chmod +x src/test/resources/drivers/chromedriver
     # Step 5: Build project with Maven
     - name: Build with Maven
-      run: mvn clean verify
-      #-Dtestng.dtd.http=true
-    # Step 6: maven Test
-    - name: Test
       env:
         CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
-      run: mvn test
+      run: mvn clean verify
+      #-Dtestng.dtd.http=true
+    # Step 6: maven Test - mvn test can be excluded as it's redundant with mvn verify
+    #- name: Test
+    #  env:
+    #    CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
+    #  run: mvn test
      # Step 7: Archive Cucumber Report
     - name: Archive Cucumber HTML reports
       uses: actions/upload-artifact@v4
