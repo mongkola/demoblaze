@@ -23,7 +23,7 @@ public class globWebDriver {
     	String driverPath = "src/test/resources/drivers/";
     	
     	ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("--enable-logging");
 
     	if (os.contains("win")) {
