@@ -1,0 +1,56 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# Test
+name: Java CI with Maven
+
+on:
+  schedule:
+    - cron: '0 3,12 * * *'  # This will run the job every day at 2 AM UTC, which is 9 AM Bangkok time
+
+# you don't need to add push/pull because you include "schedule" to let it run on regular basis.
+
+jobs:
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+   # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Step 1: Check out the repository code
+    - name: checkout Git repo
+      uses: actions/checkout@v4
+    # Step 2: Set up JDK
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    # Step 3: Ensure that webdriver exist
+    - name: check file type
+      run: file src/test/resources/drivers/chromedriver
+    # Step 4: Grant permission to VM to access Chromedriver for Linux
+    - name: Run grant permission to chromedriver for Linux
+      run:  chmod +x src/test/resources/drivers/chromedriver
+    # Step 5: Build project with Maven
+    - name: Build with Maven
+      #env:
+        #CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
+      run: mvn clean verify
+      #-Dtestng.dtd.http=true
+    # Step 6: maven Test - mvn test can be excluded as it's redundant with mvn verify
+    #- name: Test
+    #  env:
+    #    CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
+    #  run: mvn test
+     # Step 7: Archive Cucumber Report
+    - name: Archive Cucumber HTML reports
+      uses: actions/upload-artifact@v4
+      if: always() # This ensures that reports are uploaded even if the test step fails
+      with:
+        name: github-cucumber-html-reports
+        path: target
